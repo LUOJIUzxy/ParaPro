@@ -52,8 +52,8 @@ int main()
      * If you want to test the running time locally, uncomment the lines below.
      * IMPORTANT: THOSE LINES SHOULD BE COMMENTED OUT BEFORE SUBMISSION, i.e. the last output should be from output_message.
     */
-    //std::chrono::high_resolution_clock::time_point start, stop;
-    //start = std::chrono::high_resolution_clock::now();
+    std::chrono::high_resolution_clock::time_point start, stop;
+    start = std::chrono::high_resolution_clock::now();
     
     generate_test(decryptedMessage, keys, values, seed);
 
@@ -64,7 +64,7 @@ int main()
     
     output_message(decryptedMessage);
     
-    //stop = std::chrono::high_resolution_clock::now();
-    //int time_in_microseconds = std::chrono::duration_cast<std::chrono::microseconds>(stop - start).count();
-    //std::cout << std::dec << "Operations executed in " << time_in_microseconds << " microseconds" << std::endl;
+    stop = std::chrono::high_resolution_clock::now();
+    int time_in_microseconds = std::chrono::duration_cast<std::chrono::microseconds>(stop - start).count();
+    std::cout << std::dec << "Operations executed in " << time_in_microseconds << " microseconds" << std::endl;
 }

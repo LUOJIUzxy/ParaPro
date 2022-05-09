@@ -73,9 +73,10 @@ void generate_keys() {
 }
 
 void readInput() {
-    std::cout << "READY" << std::endl;
+     cstd::cout << "READY" << std::endl;
     unsigned int seed = 0;
     std::cin >> seed;
+   
 
     std::cerr << "Using seed " << seed << std::endl;
     if(seed == 0) {

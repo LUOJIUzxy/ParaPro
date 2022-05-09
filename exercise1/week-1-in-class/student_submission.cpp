@@ -10,7 +10,8 @@
 void decrypt_message(uint8_t *decryptedMessage, uint8_t *keys, uint8_t *values)
 {
     // TODO: modify the following code to improve the efficiency
-    int index = -1;
+
+    /*int index = -1;
     for (unsigned int i = 0; i < STRING_LEN; ++i)
     {
         for (int k = 0; k < UNIQUE_CHARACTERS; ++k)
@@ -22,6 +23,18 @@ void decrypt_message(uint8_t *decryptedMessage, uint8_t *keys, uint8_t *values)
         }
 
         decryptedMessage[i] = values[index];
+    } */
+
+    //實際上用的是數組啊。。。。。
+    int dict[UNIQUE_CHARACTERS];
+    for(unsigned int i = 0; i < UNIQUE_CHARACTERS; ++i ){
+        uint8_t key = keys[i];
+        dict[key] = values[i];
+    }
+
+    //use the map instead of searching in originalCharacter
+    for (unsigned int i = 0; i < STRING_LEN; ++i){
+        decryptedMessage[i] = dict[decryptedMessage[i]];
     }
 
     // End of TODO
